@@ -4,27 +4,15 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Inicio from "./screens/tabScreens/Inicio";
-import Notifications from "./screens/tabScreens/Notifications";
-import Settings from "./screens/tabScreens/Settings";
 import { Ionicons } from "@expo/vector-icons";
-import TweetDetailScreen from "./screens/homeStack/TweetDetailsScreen";
-import Payments from "./screens/drawerScreens/Payments";
-import { Image, Pressable, useColorScheme, Text } from "react-native";
+import { Image, Pressable, useColorScheme } from "react-native";
 import RecipeListaScreen from "./screens/product/RecipeListaScreen";
 import ObjetoDetallesScreen from "./screens/product/ObjetoDetallesScreen";
 import Perfil from "./screens/profile/Perfil";
-import EditaP from "./screens/profile/EditaP";
-import WelcomeScreen from "./screens/product/WelcomeScreen";
-import Home from "./screens/login/Home"
 import ProductRegistration from "./screens/login/ProductRegistration";
-
-
-
-
-
-
-
+import Payments from "./screens/drawerScreens/Payments";
+import Notifications from "./screens/tabScreens/Notifications";
+import Settings from "./screens/tabScreens/Settings";
 
 const TopTab = createMaterialTopTabNavigator();
 
@@ -36,14 +24,13 @@ function TopTabGroup() {
         tabBarIndicatorStyle: { height: 5, borderRadius: 20, backgroundColor: "#8EF3B6" }
       }}>
       <TopTab.Screen name="Producto" component={RecipeListaScreen} />
-     {/* <TopTab.Screen name="Nuevo" component={Inicio} /> */}
+      {/* <TopTab.Screen name="Nuevo" component={Inicio} /> */}
       <TopTab.Screen name="Cambios" component={Payments} />
       <TopTab.Screen name="Subir Producto" component={ProductRegistration} />
       <TopTab.Screen name="Carrito" component={Payments} />
     </TopTab.Navigator>
   );
 }
-
 
 const Drawer = createDrawerNavigator();
 
@@ -53,26 +40,69 @@ const Stack = createNativeStackNavigator();
 function StackGroup() {
   return (
     <Stack.Navigator>
-     
       <Stack.Screen name="TabGroup" component={TabGroup} options={{ headerShown: false }} />
       <Stack.Screen name="RecipeList" component={RecipeListaScreen} />
       <Stack.Screen name="ObjetoDetalles" component={ObjetoDetallesScreen} />
- 
-
     </Stack.Navigator>
   );
-  
 }
 
 function DrawerGroup() {
   return (
     <Drawer.Navigator>
-      
-      <Drawer.Screen name="Principal" component={StackGroup} options={{ headerShown: false }} />  
-      <Drawer.Screen name= "Perfil" component={Perfil}/>
-      <Drawer.Screen name="Subir Producto" component={ProductRegistration} />
-      <Drawer.Screen name="Payments" component={Payments} />
-
+      <Drawer.Screen 
+        name="Principal" 
+        component={StackGroup} 
+        options={{ 
+          headerShown: false,
+          drawerIcon: ({ focused, color, size }) => (
+            <Ionicons 
+              name={focused ? "home" : "home-outline"} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }} 
+      />
+      <Drawer.Screen 
+        name="Perfil" 
+        component={Perfil} 
+        options={{ 
+          drawerIcon: ({ focused, color, size }) => (
+            <Ionicons 
+              name={focused ? "person-circle" : "person-circle-outline"} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }} 
+      />
+      <Drawer.Screen 
+        name="Subir Producto" 
+        component={ProductRegistration} 
+        options={{ 
+          drawerIcon: ({ focused, color, size }) => (
+            <Ionicons 
+              name={focused ? "cloud-upload" : "cloud-upload-outline"} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }} 
+      />
+      <Drawer.Screen 
+        name="Payments" 
+        component={Payments} 
+        options={{ 
+          drawerIcon: ({ focused, color, size }) => (
+            <Ionicons 
+              name={focused ? "wallet" : "wallet-outline"} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }} 
+      />
     </Drawer.Navigator>
   );
 }
@@ -94,7 +124,7 @@ function TabGroup({ navigation }) {
           }
           return <Ionicons name={iconName} color={color} size={size} />;
         },
-        tabBarActiveTintColor: "#8EF3B6",
+        tabBarActiveTintColor: "#91f2b3",
         tabBarInactiveTintColor: "gray",
       })}>
       <Tab.Screen

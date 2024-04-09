@@ -4,7 +4,7 @@ import Carousel from '../../components/Carousel';
 import SearchFilter from '../../components/SearchFilter';
 import CategoriesFilter from '../../components/CategoriesFilter';
 import ObjetoCard from '../../components/ObjetoCard';
-
+import FloatingActionButton from '../../components/FloatingActionButton'; // Importa el nuevo componente de botón flotante
 
 const RecipeListaScreen = () => {
   return (
@@ -18,7 +18,7 @@ const RecipeListaScreen = () => {
               case 'search':
                 return (
                   <View style={[styles.section, styles.searchContainer]}>
-                    <SearchFilter icon="search" placeholder={"search"} />
+                    <SearchFilter icon="search" placeholder={"Buscar..."} />
                   </View>
                 );
               case 'carousel':
@@ -49,6 +49,8 @@ const RecipeListaScreen = () => {
           ListFooterComponent={<View style={{ height: 100 }} />} // Espacio adicional al final para evitar que el contenido se superponga con el pie de página
         />
       </View>
+      {/* Botón flotante */}
+      <FloatingActionButton onPress={() => console.log("Botón flotante presionado")} />
     </SafeAreaView>
   );
 }

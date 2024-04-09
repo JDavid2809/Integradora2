@@ -5,7 +5,7 @@ const Example = () => {
   
     const onClose = () => setIsOpen(false);
   
-    const cancelRef = React.useRef(null);
+    const cancelRef = React.useRef(naull);
     return <Center>
         <Button colorScheme="danger" onPress={() => setIsOpen(!isOpen)}>
           Delete Customer

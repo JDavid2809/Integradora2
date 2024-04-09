@@ -104,8 +104,11 @@ const Perfil = () => {
         <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
             <StatusBar backgroundColor={theme.background} barStyle={theme === lightTheme ? 'dark-content' : 'light-content'} />
             <View style={styles.content}>
-                <View style={[styles.profileImageContainer, { borderColor: theme.primary }]}>
+                <View style={[styles.profileContainer, { borderColor: theme.primary }]}>
                     <Image source={require("../../assets/BrayanRe.png")} resizeMode='contain' style={styles.profileImage} />
+                    <TouchableOpacity style={[styles.cameraButton, { backgroundColor: theme.buttonBackground }]}>
+                        <MaterialIcons name='photo-camera' size={24} color={theme.buttonText} />
+                    </TouchableOpacity>
                 </View>
                 <Text style={{ ...styles.text, color: theme.text }}>Pablo Sanchez</Text>
                 <Text style={{ ...styles.text, color: theme.text }}>Interir</Text>
@@ -160,15 +163,23 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20,
     },
-    profileImageContainer: {
-        borderWidth: 2,
-        borderRadius: 999,
-        padding: 2,
+    profileContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20,
     },
     profileImage: {
         height: 155,
         width: 155,
         borderRadius: 999,
+    },
+    cameraButton: {
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        backgroundColor: 'black',
+        borderRadius: 20,
+        padding: 8,
     },
     locationContainer: {
         flexDirection: "row",

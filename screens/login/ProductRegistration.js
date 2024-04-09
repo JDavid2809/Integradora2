@@ -16,7 +16,6 @@ const FONTS = {
     textShadowColor: 'rgba(0, 0, 0, 0.2)', // Color de la sombra
     textShadowOffset: { width: 2, height: 2 }, // Offset de la sombra
     textShadowRadius: 5, // Radio de la sombra
-    fontFamily: 'Arial', // Tipo de fuente
   },
   
   body: {
@@ -25,7 +24,7 @@ const FONTS = {
     marginBottom: 20,
     textAlign: 'center', // Alineación centrada
     paddingHorizontal: 20, // Espaciado horizontal
-    fontFamily: 'Arial', // Tipo de fuente
+    
   },
   button: {
     backgroundColor: '#007bff',
@@ -44,7 +43,7 @@ const FONTS = {
     fontWeight: 'bold',
     textAlign: 'center',
     marginLeft: 10, // Espaciado entre el icono y el texto
-    fontFamily: 'Arial', // Tipo de fuente
+  
   },
 };
 
@@ -86,7 +85,7 @@ const ProductRegistration = () => {
 
   return (
     <LinearGradient // Aplica el gradiente lineal como fondo
-      colors={['#00b4d8', '#caf0f8']} // Colores del gradiente
+      colors={['#caf0f8', '#ffffff']} // Colores del gradiente
       style={styles.container}>
       <SafeAreaView>
         <ScrollView>
@@ -213,7 +212,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginLeft: 10,
-    fontFamily: 'Arial',
+    
   },
 });
 
